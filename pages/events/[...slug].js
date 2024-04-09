@@ -1,4 +1,5 @@
 import EventItem from '@/components/events/event-item';
+import ResultsTitle from '@/components/result-title/results-title';
 import { getFilteredEvents } from '@/dummy-data';
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -19,9 +20,10 @@ export default function FilterEventPage() {
     year:yearNum,
     month:monthNum
   });
- 
+ const date = new Date(yearNum,monthNum - 1);
   return (
     <>
+    <ResultsTitle date={date} />
       {getFilterEvents && getFilterEvents.length > 0 ? getFilterEvents.map(item=>{
         return (
           <EventItem key={item.id} item={item}/>

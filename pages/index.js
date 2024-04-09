@@ -1,17 +1,24 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { getAllEvents } from "@/dummy-data";
+
 import EventList from "@/components/events/event-list";
+import { getAllEvents } from "@/helpers/utils-events";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  const allEvents = getAllEvents();
+export default function Home(props) {
+  
   return (
     <>
-      <EventList items={allEvents}/>
+      <EventList items={props.events}/>
     </>
   );
+}
+
+export async function getStaticProps(){
+  const allEvents = await getAllEvents();
+  return {
+    props:{
+      events:allEvents
+    }
+  }
 }
