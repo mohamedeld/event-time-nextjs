@@ -8,7 +8,7 @@ async function handler(req,res){
       })
       return;
     }
-    const client = await MongoClient.connect('mongodb+srv://mohamedazoz20010:DlKcsRJqhoSOScDJ@cluster0.g5n9xya.mongodb.net/newsletter?retryWrites=true&w=majority&appName=Cluster0');
+    const client = await MongoClient.connect('mongodb+srv://mohamedazoz20010:DlKcsRJqhoSOScDJ@cluster0.g5n9xya.mongodb.net/events?retryWrites=true&w=majority&appName=Cluster0');
     const db = client.db();
     await db.collection('emails').insertOne({email:userEmail});
     client.close();
