@@ -15,7 +15,7 @@ export default function EventItem({item}) {
   const readableLocation = item.location.replace(', ','\n');
   return (
     <li className={classes.item}>
-      <Image src={`/${item.image}`} alt={item.title} className={classes['event-image']} width={100} height={160} />
+      <Image src={`/${item.image}`} alt={item.title} className={classes['event-image']} width={240} height={160} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{item.title}</h2>
